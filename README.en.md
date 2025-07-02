@@ -36,7 +36,6 @@ A demo project built with C# and .NET 8 showcasing a gRPC-based ToDo task manage
 ---
 
 ## 📁 Project structure
-
 ```bash
 /
 ├── ToDoListApp/                # gRPC server (ASP.NET Core)
@@ -49,27 +48,25 @@ A demo project built with C# and .NET 8 showcasing a gRPC-based ToDo task manage
 │   ├── Protos/todo.proto       # gRPC protocol
 │   └── Program.cs
 └── README.md
-
+```
 ---
 
 ## 📦 Getting Started
 
 ### 1. Clone the repo
 
-```bash
 git clone https://github.com/your-username/grpc-todo-app.git
 cd grpc-todo-app
 
 
 ### 2. Run the server
 
-```bash
 cd ToDoListApp
 dotnet run
 
 
 ### 3. Run the WPF client
-```bash
+
 cd ToDoListWpfClient
 dotnet run
 

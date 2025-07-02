@@ -1,6 +1,4 @@
 ﻿using Grpc.Core;
-using System.Collections.Concurrent;
-using ToDoListApp;
 
 namespace ToDoListApp.Services
 {

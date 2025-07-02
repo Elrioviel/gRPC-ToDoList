@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "ToDoListApp";
+
+package todo;
+
+message ToDoItem {
+	int32 id = 1;
+	string title = 2;
+	bool is_done = 3;
+}
+
+message AddToDoRequest {
+	string title = 1;
+}
+
+message AddToDoReply {
+	ToDoItem item = 1;
+}
+
+message GetAllToDosRequest {}
+message GetAllToDosReply {
+	repeated ToDoItem items = 1;
+}
+
+message MarkDoneRequest {
+	int32 id = 1;
+}
+
+message MarkDoneReply {
+	bool success = 1;
+}
+
+service ToDo {
+	rpc AddToDo (AddToDoRequest) returns (AddToDoReply);
+	rpc GetAllToDos (GetAllToDosRequest) returns (GetAllToDosReply);
+	rpc MarkDone (MarkDoneRequest) returns (MarkDoneReply);
+	rpc StreamTodos (GetAllToDosRequest) returns (stream ToDoItem);
+}

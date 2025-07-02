@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  todolist-server:
+    build:
+      context: ./ToDoList
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      ASPNETCORE_URLS: http://+:80
+    restart: unless-stopped

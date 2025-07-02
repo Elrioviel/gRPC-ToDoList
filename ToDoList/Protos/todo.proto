@@ -35,4 +35,5 @@ service ToDo {
 	rpc AddToDo (AddToDoRequest) returns (AddToDoReply);
 	rpc GetAllToDos (GetAllToDosRequest) returns (GetAllToDosReply);
 	rpc MarkDone (MarkDoneRequest) returns (MarkDoneReply);
+	rpc StreamTodos (GetAllToDosRequest) returns (stream ToDoItem);
 }

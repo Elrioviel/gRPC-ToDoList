@@ -1,4 +1,5 @@
-﻿using Grpc.Net.Client;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
 using ToDoListApp;
 using ToDoListApp;
 
@@ -11,9 +12,9 @@ var title = Console.ReadLine();
 var addResponse = await client.AddToDoAsync(new AddToDoRequest { Title = title });
 Console.WriteLine($"Добавлено: {addResponse.Item.Id}: {addResponse.Item.Title}");
 
-var list = await client.GetAllToDosAsync(new GetAllToDosRequest());
-Console.WriteLine("Список задач:");
-foreach (var item in list.Items)
+var streamingCall = client.StreamTodos(new GetAllToDosRequest());
+Console.WriteLine("Стрим задач:");
+await foreach (var item in streamingCall.ResponseStream.ReadAllAsync())
 {
     var status = item.IsDone ? "[✓]" : "[ ]";
     Console.WriteLine($"{item.Id}. {item.Title}: {status}");

@@ -1,5 +1,4 @@
 ﻿using Grpc.Core;
-using System.Security.Cryptography.X509Certificates;
 
 namespace ToDoListApp.Services
 {
@@ -39,6 +38,15 @@ namespace ToDoListApp.Services
             }
 
             return Task.FromResult(new MarkDoneReply { Success = false });
+        }
+
+        public override async Task StreamTodos(GetAllToDosRequest request, IServerStreamWriter<ToDoItem> responseStream, ServerCallContext context)
+        {
+            foreach (var item in _todos)
+            {
+                await responseStream.WriteAsync(item);
+                await Task.Delay(500);
+            }
         }
     }
 }

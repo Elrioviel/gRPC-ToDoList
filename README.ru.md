@@ -36,7 +36,6 @@
 
 ## 📁 Структура проекта
 
-```bash
 /
 ├── ToDoListApp/                # gRPC-сервер (ASP.NET Core)
 │   ├── Services/ToDoService.cs # Реализация сервиса
@@ -55,20 +54,18 @@
 
 ### 1. Клонировать репозиторий
 
-```bash
 git clone https://github.com/your-username/grpc-todo-app.git
 cd grpc-todo-app
 
 
 ### 2. Запустить сервер
 
-```bash
 cd ToDoListApp
 dotnet run
 
 
 ### 3. Запустить WPF-клиент
-```bash
+
 cd ToDoListWpfClient
 dotnet run
 
